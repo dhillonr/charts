@@ -1,0 +1,20 @@
+onOpenShift: false
+
+pvcStorage: 1000Gi
+pvcName: nfs-pvc
+storageClassName: nfs-sc
+
+serviceAccount:
+  create: true
+  name:
+
+nfsProvisionerImage: quay.io/kubernetes_incubator/nfs-provisioner:v2.2.2
+imagePullPolicy: IfNotPresent
+nfsProvisionerName: kubernetes.io/gce-pd
+
+podSecurityPolicyName: nfs-provisioner
+
+## Node labels for pod assignment
+## Ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+nodeSelector: {}
